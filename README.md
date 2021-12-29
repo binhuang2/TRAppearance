@@ -20,7 +20,7 @@ view.trAppearance_bindUpdater { [weak self] appearance, bindView in
 }];
 ```
 
-2.主题色自动或手动改变时调用
+2.暗黑模式变动或手动改变主题色时调用
 ```
 @objc static func changeTheme(_ style: TRAppearanceStyle)
 ```
@@ -52,7 +52,7 @@ class TRAppearanceLinkedList : NSObject {
     public weak var bindView:UIView!
     
     deinit {
-        //需手动释放链接节点
+        //需手动释放链表节点
         var root = first
         first = nil
         DispatchQueue.global(qos: .background).async {
@@ -123,7 +123,7 @@ public func execBlock(isCheckWindow: Bool) {
 }
 ```
 
-4.当view调用`didMoveToWindow`时，判断view的`linkedList`属性是否存在，是否被设置为稍后调用,条件成立时，遍历链接调用绑定的block
+4.当view调用`didMoveToWindow`时，判断view的`linkedList`属性是否存在，是否被设置为稍后调用,条件成立时，遍历链表调用绑定的block
 ```
 @objc func trAppearance_didMoveToWindow() {
     guard let linkList = tr_linkedList else {
